@@ -1,6 +1,12 @@
 
 # Changelog for rabtap
 
+## v1.21 (2019-xx-xx)
+
+* new: `info` command shows info on configured dead letter exchange (DLX) for
+  a queue. Filtering for queues with a DLX is also supported (see README.md).
+* fix: typo in connection node of dot output
+
 ## v1.20 (2019-08-30)
 
 * fix: avoid blocking write during tap, subscribe which can lead to ctrl+c
