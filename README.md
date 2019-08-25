@@ -45,6 +45,10 @@ and exchanges, inspect broker.
     * [Type reference](#type-reference)
         * [Exchange type](#exchange-type)
         * [Queue type](#queue-type)
+        * [Binding type](#binding-type)
+* [Build from source](#build-from-source)
+    * [Download and build using go get](#download-and-build-using-go-get)
+    * [Build using Makefile and running tests](#build-using-makefile-and-running-tests)
 * [Test data generator](#test-data-generator)
 * [Contributing](#contributing)
 * [Author](#author)
@@ -636,7 +640,8 @@ type Queue struct {
 	Consumers int
 	IdleSince string
 	Memory    int
-}```
+}
+```
 
 The `Queue` type provides the following methods:
 * `func (s Queue) HasDlx() bool` - return true if queue has an associated DLX.
