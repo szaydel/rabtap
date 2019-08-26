@@ -85,9 +85,10 @@ Output of `rabtap info --stats` command, showing additional statistics:
 ### Visualize broker topology with graphviz
 
 Using the `--format=dot` option, the `info` command can generate output in the
-`dot` format, which can be visualized using graphviz, e.g. `rabtap info
---show-default --format dot | dot -T svg > mybroker.svg`. The resulting SVG
-file can be visualized with a web browser.
+`dot` format, which can be visualized using graphviz, e.g.  `info --format=dot
+--show-default | dot -T svg > broker.svg` The resulting SVG file can be
+visualized with a web browser. Note that this is an experimental feature, still
+under development.
 
 ![info mode](doc/images/info-dot.png)
 
