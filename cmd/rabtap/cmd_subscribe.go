@@ -29,7 +29,7 @@ func cmdSubscribe(ctx context.Context, cmd CmdSubscribeArg) error {
 
 	// this channel is used to decouple message receiving threads
 	// with the main thread, which does the actual message processing
-	messageChannel := make(rabtap.TapChannel)
+	messageChannel := make(rabtap.TapChannel, 10)
 	config := rabtap.AmqpSubscriberConfig{Exclusive: false, AutoAck: cmd.AutoAck}
 	subscriber := rabtap.NewAmqpSubscriber(config, cmd.amqpURI, cmd.tlsConfig, log)
 	//defer subscriber.Close()
