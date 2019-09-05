@@ -27,7 +27,6 @@ func expectNilOnChan(t *testing.T, ch <-chan interface{}) {
 
 func TestFaninReceivesFromMultipleChannels(t *testing.T) {
 
-	// create fanin of 3 int channels
 	chan1 := make(chan int)
 	chan2 := make(chan int)
 	chan3 := make(chan int)
@@ -39,7 +38,6 @@ func TestFaninReceivesFromMultipleChannels(t *testing.T) {
 		chan1 <- 99
 		chan2 <- 100
 		chan3 <- 101
-		assert.Nil(t, fanin.Stop())
 	}()
 
 	expectIntOnChan(t, 99, fanin.Ch)
@@ -47,6 +45,7 @@ func TestFaninReceivesFromMultipleChannels(t *testing.T) {
 	expectIntOnChan(t, 101, fanin.Ch)
 
 	// fanin.Stop() closes fanin channel which in turn sends nil message
+	assert.Nil(t, fanin.Stop())
 	expectNilOnChan(t, fanin.Ch)
 
 	assert.False(t, fanin.Alive())
